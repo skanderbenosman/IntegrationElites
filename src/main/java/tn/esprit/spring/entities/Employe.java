@@ -31,7 +31,7 @@ public class Employe implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	//@SequenceGenerator(name="seq")
-	private int id;
+	private Long id;
 	
 	private String prenom;
 	
@@ -69,7 +69,7 @@ public class Employe implements Serializable {
 	}
 	
 		
-	public Employe(int id, String prenom, String nom, String email, String password, boolean actif, Role role) {
+	public Employe(Long id, String prenom, String nom, String email, String password, boolean actif, Role role,Contrat contrat) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
@@ -78,6 +78,7 @@ public class Employe implements Serializable {
 		this.password = password;
 		this.actif = actif;
 		this.role = role;
+		this.contrat=contrat;
 	}
 
 
@@ -97,13 +98,23 @@ public class Employe implements Serializable {
 		this.email = email;
 		this.actif = actif;
 		this.role = role;
+	
 	}
 	
-	public int getId() {
+	public Employe(String nom, String prenom, String email, String password, boolean actif, Role role,Contrat contrat) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.password = password;
+		this.actif = actif;
+		this.role = role;
+		this.contrat=contrat;
+	}
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
