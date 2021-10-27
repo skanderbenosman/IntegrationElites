@@ -32,7 +32,7 @@ public class EmployeServiceImplTest {
 		List<Employe> listUsers = us.retrieveAllEmployes();
 		System.out.println("resultat:***"+listUsers);
 		// if there are 7 users in DB : 
-		//Assert.assertEquals(15, listUsers.size());
+		Assert.assertEquals(2, listUsers.size());
 	}
 
 
@@ -41,10 +41,10 @@ public class EmployeServiceImplTest {
 	public void testAddEmploye() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Boolean d = false;
-		System.out.println("***"+uc.retrieveContrat("1") );
-		Employe u = new Employe("mohamed", "mselmi", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,uc.retrieveContrat("1")); 
+	//	System.out.println("***"+uc.retrieveContrat("1") );
+		Employe u = new Employe("skander", "ben osman", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,uc.retrieveContrat("1")); 
 		Employe employeAdded = us.addEmploye(u); 
-	//	Assert.assertEquals(u.getLastName(), userAdded.getLastName());
+	Assert.assertEquals(u.getNom(), employeAdded.getNom());
 	}
 
 	
@@ -52,9 +52,9 @@ public class EmployeServiceImplTest {
 
 	@Test
 	public void testRetrieveEmploye() {
-		Employe userRetrieved = us.retrieveEmploye("14");
+		Employe userRetrieved = us.retrieveEmploye("29");
 		System.out.println("resultat retrieve :" +userRetrieved);
-	//	Assert.assertEquals(1L, userRetrieved.getId());
+		Assert.assertEquals(29, userRetrieved.getId().longValue());
 	}
 	
 
@@ -63,9 +63,10 @@ public class EmployeServiceImplTest {
 	public void testModifyEmploye() throws ParseException   {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		Employe u = new Employe( Long. valueOf("12"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,uc.retrieveContrat("2"));
+		Employe u = new Employe( Long. valueOf("29"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,uc.retrieveContrat("3"));
 		Employe employeUpdated  = us.updateEmploye(u);
-		//Assert.assertEquals(u.getLastName(), userUpdated.getLastName());
+		Assert.assertEquals(u.getNom(), employeUpdated.getNom());
+		Assert.assertEquals(u.getPrenom(), employeUpdated.getPrenom());
 	}
 
 
@@ -73,8 +74,8 @@ public class EmployeServiceImplTest {
 
 	@Test
 	public void testDeleteEmploye() {
-		us.deleteEmploye("13");
-	//	Assert.assertNull(us.retrieveEmploye("3"));
+		us.deleteEmploye("27");
+	Assert.assertNull(us.retrieveEmploye("27"));
 	}
 
 }
