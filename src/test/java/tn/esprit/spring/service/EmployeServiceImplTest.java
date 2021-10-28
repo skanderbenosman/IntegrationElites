@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.User;
-import tn.esprit.spring.services.IContratService;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IUserService;
 
@@ -25,7 +24,7 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEmployeService us; 
 	@Autowired
-	IContratService uc;
+//	IContratService uc;
 
 	@Test
 	public void testRetrieveAllUsers() {
@@ -42,7 +41,7 @@ public class EmployeServiceImplTest {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Boolean d = false;
 	//	System.out.println("***"+uc.retrieveContrat("1") );
-		Employe u = new Employe("skander", "ben osman", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,uc.retrieveContrat("1")); 
+		Employe u = new Employe("skander", "ben osman", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,null); 
 		Employe employeAdded = us.addEmploye(u); 
 	Assert.assertEquals(u.getNom(), employeAdded.getNom());
 	}
@@ -63,7 +62,7 @@ public class EmployeServiceImplTest {
 	public void testModifyEmploye() throws ParseException   {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		Employe u = new Employe( Long. valueOf("46"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,uc.retrieveContrat("3"));
+		Employe u = new Employe( Long. valueOf("46"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,null);
 		Employe employeUpdated  = us.updateEmploye(u);
 		Assert.assertEquals(u.getNom(), employeUpdated.getNom());
 		Assert.assertEquals(u.getPrenom(), employeUpdated.getPrenom());
