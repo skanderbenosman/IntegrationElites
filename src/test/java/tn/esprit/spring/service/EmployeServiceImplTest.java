@@ -52,18 +52,18 @@ public class EmployeServiceImplTest {
 
 	@Test
 	public void testRetrieveEmploye() {
-		Employe userRetrieved = us.retrieveEmploye("29");
+		Employe userRetrieved = us.retrieveEmploye("46");
 		System.out.println("resultat retrieve :" +userRetrieved);
-		Assert.assertEquals(29, userRetrieved.getId().longValue());
+		Assert.assertEquals(46, userRetrieved.getId().longValue());
 	}
 	
-
+	
 
 	@Test
 	public void testModifyEmploye() throws ParseException   {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		Employe u = new Employe( Long. valueOf("29"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,uc.retrieveContrat("3"));
+		Employe u = new Employe( Long. valueOf("46"),"test1", "test1", "mohamed.mselmi1@esprit.tn","20251825", true, Role.INGENIEUR,uc.retrieveContrat("3"));
 		Employe employeUpdated  = us.updateEmploye(u);
 		Assert.assertEquals(u.getNom(), employeUpdated.getNom());
 		Assert.assertEquals(u.getPrenom(), employeUpdated.getPrenom());
@@ -74,8 +74,8 @@ public class EmployeServiceImplTest {
 
 	@Test
 	public void testDeleteEmploye() {
-		us.deleteEmploye("27");
-	Assert.assertNull(us.retrieveEmploye("27"));
+		us.deleteEmploye("45");
+	Assert.assertNull(us.retrieveEmploye("45"));
 	//test
 	}
 
