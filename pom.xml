@@ -57,10 +57,5 @@
 
 	</dependencies>
 
-<repositories>
-<repository>
-<id>maven-group</id>
-<url>http://localhost:8081/repository/maven-group/</url>
-</repository>
-</repositories>
+
 </project>
