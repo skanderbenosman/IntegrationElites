@@ -11,6 +11,6 @@ public interface IDepartementService {
 	int deleteDepartement(int id);
 	Departement retrieveDepartement(int id);
 	Departement affecterDepartementAEntreprise(int depId, int entrepriseId);
-	Departement desaffecterDepartementAEntreprise(int depId, int entrepriseId)
+	Departement desaffecterDepartementAEntreprise(int depId, int entrepriseId);
 	
 }

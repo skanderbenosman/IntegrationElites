@@ -7,14 +7,11 @@ import javax.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Entreprise;
-import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
-import tn.esprit.spring.repository.UserRepository;
 
 public class DepartementServiceImpl {
 
@@ -127,8 +124,7 @@ public class DepartementServiceImpl {
 
 	public Departement retrieveDepartement(int id) {
 		l.info("in  retrieveDepartement id = " + id);
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		//int i = 1/0; 
+
 		Departement dep =  depRepository.findById(id).get(); 
 		l.info("deprtement returned : " + dep);
 		return dep; 
