@@ -42,7 +42,7 @@ public class EmployeServiceImplTest {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Boolean d = false;
 	//	System.out.println("***"+uc.retrieveContrat("1") );
-		Employe u = new Employe("med", "mselmi", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,uc.retrieveContrat("2")); 
+		Employe u = new Employe("med", "mselmi", "mohamed.mselmi1@esprit.tn","123456", d, Role.INGENIEUR,uc.retrieveContrat("1")); 
 		Employe employeAdded = us.addEmploye(u); 
 	Assert.assertEquals(u.getNom(), employeAdded.getNom());
 	}
@@ -73,8 +73,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testDeleteEmploye() {
-		us.deleteEmploye("66");
-	Assert.assertNull(us.retrieveEmploye("66"));
+		us.deleteEmploye("68");
+	Assert.assertNull(us.retrieveEmploye("68"));
 	}
 
 	
