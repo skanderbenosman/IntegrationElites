@@ -56,11 +56,9 @@ public class ContratServiceImpl implements IContratService {
 	@Override
 	public Contrat retrieveContrat(String id) {
 		l.info("in  retrieveContrat id = " + id);
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		//int i = 1/0; 
-		System.out.println("aaaaa");
+		
 		Contrat c =  contratRepository.findById(Integer.parseInt(id)).orElse(null); 
-		System.out.println("skander");
+		
 		l.info("Contrat returned : " + c);
 		
 		return c; 
