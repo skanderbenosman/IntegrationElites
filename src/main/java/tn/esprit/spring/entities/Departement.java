@@ -39,13 +39,14 @@ public class Departement implements Serializable {
 	private Entreprise entreprise;
 
 	public Departement() {
-		super();
 	}
 	
 	public Departement(String name) {
 		this.name = name;
 	}
 	
+
+
 	public int getId() {
 		return id;
 	}

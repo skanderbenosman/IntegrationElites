@@ -1,8 +1,7 @@
 package tn.esprit.spring.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+
 
 
 import java.util.List;
@@ -12,18 +11,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import tn.esprit.spring.entities.Departement;
-import tn.esprit.spring.entities.Entreprise;
-import tn.esprit.spring.repository.DepartementRepository;
-import tn.esprit.spring.repository.EntrepriseRepository;
 import tn.esprit.spring.services.IDepartementService;
 
 public class DepartementServiceImplTest {
 	@Autowired
 	IDepartementService DepService; 
-	@Autowired
-    EntrepriseRepository entrepriseRepoistory;
-	@Autowired
-	DepartementRepository deptRepoistory;
+
 	
 	@Test
 	public void testGetAllDepartements()  {

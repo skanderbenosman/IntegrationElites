@@ -2,7 +2,6 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Entreprise;
-import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
@@ -18,9 +16,11 @@ public class DepartementServiceImpl implements IDepartementService{
 
 	@Autowired
 	DepartementRepository depRepository;
+	@Autowired
 	EntrepriseRepository entrepriseRepository;
 
 	private static final Logger l = LogManager.getLogger(DepartementServiceImpl.class);	
+	
 	@Override
 	public List<Departement> retrieveAllDepartements() { 
 		List<Departement> deps = null; 
