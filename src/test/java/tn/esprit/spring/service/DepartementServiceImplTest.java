@@ -29,7 +29,7 @@ public class DepartementServiceImplTest {
 	public void testGetAllDepartements()  {
 		
 		List <Departement> listDep = DepService.retrieveAllDepartements();
-		assertNotNull(listDep);
+		Assert.assertEquals(3, listDep.size());
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class DepartementServiceImplTest {
 		Departement dAdded = DepService.addDep(d);
 		assertEquals(d.getName(), dAdded.getName());
 	}
-	@Test
+/*	@Test
 	public void testAffecterDepartementAEntreprise() {
 		int entrepriseId = 3 ;
 		int depId = 3;  
@@ -60,7 +60,7 @@ public class DepartementServiceImplTest {
 	    if(Dep != null){
 		assertNull (Dep.getEntreprise());
 	    }
-	}
+	} */
 	@Test
 	  public void testGetDepartementById(){
 		int depId = 2;//+1
@@ -72,9 +72,9 @@ public class DepartementServiceImplTest {
 	
 	@Test
 	public void testDeleteDepartementById(){
-		int depId = 49 ;
-		int i = DepService.deleteDepartement(depId);
-		assertEquals(0, i);
+		DepService.deleteDepartement(2);
+		
+		Assert.assertNull(DepService.retrieveDepartement(2));
 		
 		
 
