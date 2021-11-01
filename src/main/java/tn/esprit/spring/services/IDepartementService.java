@@ -9,7 +9,7 @@ public interface IDepartementService {
 	Departement addDep(Departement dep);
 	Departement updateDepartement(Departement dep);
 	Departement retrieveDepartement(int id);
-	void deleteDepartementById(int depId);
+	void deleteDepartement(int depId);
 	Departement desaffecterDepartementDuEntreprise(int depId, int entId);
 	Departement affecterDepartementAEntreprise(int depId, int entrepriseId);
 	

@@ -1,37 +1,58 @@
 package tn.esprit.spring.service;
 
+ 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
-
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Departement;
+import tn.esprit.spring.entities.Entreprise;
+import tn.esprit.spring.entities.Role;
+import tn.esprit.spring.entities.User;
+import tn.esprit.spring.repository.DepartementRepository;
+import tn.esprit.spring.repository.EntrepriseRepository;
 import tn.esprit.spring.services.IDepartementService;
+import tn.esprit.spring.services.IUserService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
 
 public class DepartementServiceImplTest {
+	
 	@Autowired
 	IDepartementService DepService; 
+	@Autowired
+	DepartementRepository deptRepoistory;
+	@Autowired
+	EntrepriseRepository entrepriseRepoistory;
 
 	
 	@Test
 	public void testGetAllDepartements()  {
 		
 		List <Departement> listDep = DepService.retrieveAllDepartements();
-		Assert.assertEquals(3, listDep.size());
+		assertEquals(4, listDep.size());
 	}
 	
-	@Test
+@Test
 	public void testAjouterDepartement(){
 		Departement d = new Departement ("IT Dep");
 		Departement dAdded = DepService.addDep(d);
 		assertEquals(d.getName(), dAdded.getName());
 	}
-/*	@Test
+
+	@Test
 	public void testAffecterDepartementAEntreprise() {
 		int entrepriseId = 3 ;
 		int depId = 3;  
@@ -48,12 +69,13 @@ public class DepartementServiceImplTest {
 	public void testDesaffecterDepartementDuEntreprise () {
 		int entId = 1 ;
 		int depId = 1 ;
-	    DepService.desaffecterDepartementAEntreprise(depId, entId);
-	    Departement Dep = deptRepoistory.findById(depId).orElse(null);
-	    if(Dep != null){
+	    DepService.desaffecterDepartementDuEntreprise(depId, entId);
+	    Departement Dep = DepService.retrieveDepartement(depId);
+	    
 		assertNull (Dep.getEntreprise());
-	    }
-	} */
+	    
+	} 
+	
 	@Test
 	  public void testGetDepartementById(){
 		int depId = 2;//+1
@@ -62,15 +84,16 @@ public class DepartementServiceImplTest {
 		assertEquals(2, dep.getId());
 	}
 	
-	
+
+/*	
 	@Test
-	public void testDeleteDepartementById(){
-		DepService.deleteDepartementById(2);
+	public void testDeleteDepartement(){
+		DepService.deleteDepartement(2);
 		
 		Assert.assertNull(DepService.retrieveDepartement(2));
 		
 		
 
 	}
-
+*/
 }

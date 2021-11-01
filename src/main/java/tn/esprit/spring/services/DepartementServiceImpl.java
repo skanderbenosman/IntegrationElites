@@ -6,12 +6,14 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
+@Service
 public class DepartementServiceImpl implements IDepartementService{
 
 	@Autowired
@@ -19,10 +21,10 @@ public class DepartementServiceImpl implements IDepartementService{
 	@Autowired
 	EntrepriseRepository entrepriseRepository;
 
-	private static final Logger l = LogManager.getLogger(DepartementServiceImpl.class);	
-	
+	private static final Logger l = LogManager.getLogger(DepartementServiceImpl.class);
+
 	@Override
-	public List<Departement> retrieveAllDepartements() { 
+	public List<Departement> retrieveAllDepartements() {
 		List<Departement> deps = null; 
 		try {
 	
@@ -38,36 +40,35 @@ public class DepartementServiceImpl implements IDepartementService{
 
 		return deps;
 	}
+
 	@Override
-	public Departement affecterDepartementAEntreprise(int depId, int entrepriseId) {
-		try {
-			     l.info("In affecterDepartementAEntreprise :  ");	
-				 Entreprise entrepriseManagedEntity = entrepriseRepository.findById(entrepriseId).orElse(null);
-			     l.debug("get entrepriseManagedEntity ");
-		         Departement depManagedEntity = depRepository.findById(depId).orElse(null);
-		         l.debug("get depManagedEntity ");   
-				if(depManagedEntity!=null){
-					 l.debug("In If ");
-					 depManagedEntity.setEntreprise(entrepriseManagedEntity);
-					 l.debug("Affecter ");
-				     Departement d = depRepository.save(depManagedEntity);
-				     l.debug("Save");	
-				     l.info("Out of affecterDepartementAEntreprise.  ");
-				     return d ;
-					}
+	public Departement addDep(Departement dep) {
+		return depRepository.save(dep); 
+	}
+
+	@Override
+	public Departement updateDepartement(Departement dep) {
+		return depRepository.save(dep);
+	}
+
+	@Override
+	public Departement retrieveDepartement(int id) {
+		l.info("in  retrieveDepartement id = " + id);
+
+		Departement dep =  depRepository.findById(id).orElse(null); 
+		l.info("deprtement returned : " + dep);
+		return dep; 
 		
-					return null ;
-					}catch (Exception e) {
-						l.error("erreur In affecterDepartementAEntreprise() : Failed to affect " + e);
-						return null ; }
-		 
-					}
-
-	
-	
+	}
 
 	@Override
-	public Departement desaffecterDepartementDuEntreprise (int depId , int entId){
+	public void deleteDepartement(int depId) {
+	      depRepository.deleteById(depId);
+	}
+
+
+	@Override
+	public Departement desaffecterDepartementDuEntreprise(int depId, int entId) {
 		try {
 			l.info("In desaffecterDepartementDuEntreprise :  ");
 			Entreprise ent = entrepriseRepository.findById(entId).orElse(null);
@@ -92,29 +93,31 @@ public class DepartementServiceImpl implements IDepartementService{
 			l.error("erreur In affecterDepartementAEntreprise() : Failed to affect " + e);
 			return null ; 
 		}
-		}
-	@Override
-	public Departement addDep(Departement dep) {
-		return depRepository.save(dep); 
-	}
-	@Override
-	public Departement updateDepartement(Departement dep) { 
-		return depRepository.save(dep);
 	}
 
 	@Override
-	public void deleteDepartementById(int depId) {
-		depRepository.deleteById(depId);
-
-	}
-	@Override
-	public Departement retrieveDepartement(int id) {
-		l.info("in  retrieveDepartement id = " + id);
-
-		Departement dep =  depRepository.findById(id).get(); 
-		l.info("deprtement returned : " + dep);
-		return dep; 
-	}
-
+	public Departement affecterDepartementAEntreprise(int depId, int entrepriseId) {
+		try {
+		     l.info("In affecterDepartementAEntreprise :  ");	
+			 Entreprise entrepriseManagedEntity = entrepriseRepository.findById(entrepriseId).orElse(null);
+		     l.debug("get entrepriseManagedEntity ");
+	         Departement depManagedEntity = depRepository.findById(depId).orElse(null);
+	         l.debug("get depManagedEntity ");   
+			if(depManagedEntity!=null){
+				 l.debug("In If ");
+				 depManagedEntity.setEntreprise(entrepriseManagedEntity);
+				 l.debug("Affecter ");
+			     Departement d = depRepository.save(depManagedEntity);
+			     l.debug("Save");	
+			     l.info("Out of affecterDepartementAEntreprise.  ");
+			     return d ;
+				}
+	
+				return null ;
+				}catch (Exception e) {
+					l.error("erreur In affecterDepartementAEntreprise() : Failed to affect " + e);
+					return null ; }
+	}	
+	
 
 }
