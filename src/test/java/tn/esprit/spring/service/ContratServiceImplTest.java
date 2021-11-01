@@ -27,7 +27,7 @@ public class ContratServiceImplTest {
 	@Test
 	public void testRetrieveAllContrats() {
 		List<Contrat> listContrats = cs.retrieveAllContrats(); 
-		 //if there are 7 users in DB : 
+		 
 		Assert.assertEquals(2, listContrats.size());
 	}
 	@Test
@@ -52,12 +52,12 @@ public class ContratServiceImplTest {
 		Contrat ContratRetrieved = cs.retrieveContrat("6");
 		Assert.assertEquals(6, ContratRetrieved.getReference());
 	}
-	/*
+	
 	@Test
 	public void testDeleteContrat() {
 		
-		cs.deleteContrat("5");
+		cs.deleteContrat("7");
 		
-		Assert.assertNull(cs.retrieveContrat("5"));
-	}*/
+		Assert.assertNull(cs.retrieveContrat("7"));
+	}
 }
