@@ -65,7 +65,7 @@ public class DepartementServiceImplTest {
 		}
 			
 	}
-	@Test
+	/*	@Test
 	public void testDesaffecterDepartementDuEntreprise () {
 		int entId = 1 ;
 		int depId = 1 ;
@@ -74,7 +74,7 @@ public class DepartementServiceImplTest {
 	    
 		assertNull (Dep.getEntreprise());
 	    
-	} 
+	} */
 	
 	@Test
 	  public void testGetDepartementById(){
