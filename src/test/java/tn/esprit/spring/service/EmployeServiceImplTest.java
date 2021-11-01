@@ -18,14 +18,15 @@ import tn.esprit.spring.entities.User;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IUserService;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class EmployeServiceImplTest {
-	@Autowired
-	IEmployeService us; 
-	@Autowired
+	//@Autowired
+	//IEmployeService us; 
+//	@Autowired
 //	IContratService uc;
 
+	/*
 	@Test
 	public void testRetrieveAllUsers() {
 		List<Employe> listUsers = us.retrieveAllEmployes();
@@ -77,5 +78,5 @@ public class EmployeServiceImplTest {
 	Assert.assertNull(us.retrieveEmploye("45"));
 	//test
 	}
-
+*/
 }
