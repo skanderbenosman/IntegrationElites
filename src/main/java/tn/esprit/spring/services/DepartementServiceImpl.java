@@ -10,16 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Entreprise;
+import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
-public class DepartementServiceImpl {
+public class DepartementServiceImpl implements IDepartementService{
 
 	@Autowired
 	DepartementRepository depRepository;
 	EntrepriseRepository entrepriseRepository;
 
 	private static final Logger l = LogManager.getLogger(DepartementServiceImpl.class);	
+	@Override
 	public List<Departement> retrieveAllDepartements() { 
 		List<Departement> deps = null; 
 		try {
@@ -36,6 +38,7 @@ public class DepartementServiceImpl {
 
 		return deps;
 	}
+	@Override
 	public Departement affecterDepartementAEntreprise(int depId, int entrepriseId) {
 		try {
 			     l.info("In affecterDepartementAEntreprise :  ");	
@@ -63,7 +66,7 @@ public class DepartementServiceImpl {
 	
 	
 
-	@Transactional
+	@Override
 	public Departement desaffecterDepartementDuEntreprise (int depId , int entId){
 		try {
 			l.info("In desaffecterDepartementDuEntreprise :  ");
@@ -90,16 +93,16 @@ public class DepartementServiceImpl {
 			return null ; 
 		}
 		}
-
+	@Override
 	public Departement addDep(Departement dep) {
 		return depRepository.save(dep); 
 	}
-
+	@Override
 	public Departement updateDepartement(Departement dep) { 
 		return depRepository.save(dep);
 	}
 
-	@Transactional
+	@Override
 	public int deleteDepartementById(int depId) {
 		try {
 			  l.info("In deleteDepartmentById  :  ");
@@ -121,7 +124,7 @@ public class DepartementServiceImpl {
 			 }
 			  
 	}
-
+	@Override
 	public Departement retrieveDepartement(int id) {
 		l.info("in  retrieveDepartement id = " + id);
 
@@ -129,4 +132,6 @@ public class DepartementServiceImpl {
 		l.info("deprtement returned : " + dep);
 		return dep; 
 	}
+
+
 }
