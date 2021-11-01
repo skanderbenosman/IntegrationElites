@@ -103,26 +103,9 @@ public class DepartementServiceImpl implements IDepartementService{
 	}
 
 	@Override
-	public int deleteDepartementById(int depId) {
-		try {
-			  l.info("In deleteDepartmentById  :  ");
-			  
-			  l.info(" department id= " + depId);
-			  Departement depA = depRepository.findById(depId).orElse(null);
-			  if (depA != null )
-			  {		
-		depRepository.delete(depRepository.findById(depId).orElse(null));	
-		 l.info("Out of deleteDepartmentById.  ");
-		  return 0;}
-		  else { return -1; }
-		 
-		} 
-		catch (Exception e) {
-			
-			l.error("erreur In deleteDepartementById() : could not be found " + e); 
-			return -1 ;
-			 }
-			  
+	public void deleteDepartementById(int depId) {
+		depRepository.deleteById(depId);
+
 	}
 	@Override
 	public Departement retrieveDepartement(int id) {
