@@ -72,7 +72,7 @@ public class DepartementServiceImplTest {
 	
 	@Test
 	public void testDeleteDepartementById(){
-		DepService.deleteDepartement(2);
+		DepService.deleteDepartementById(2);
 		
 		Assert.assertNull(DepService.retrieveDepartement(2));
 		
