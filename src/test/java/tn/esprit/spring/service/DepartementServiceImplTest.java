@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 
@@ -25,11 +26,11 @@ public class DepartementServiceImplTest {
 	DepartementRepository deptRepoistory;
 	
 	@Test
-	public void testRetrieveAllDepartements() {
-		List<Departement> listDeps = DepService.retrieveAllDepartements(); 
-		Assert.assertEquals(15, listDeps.size());
+	public void testGetAllDepartements()  {
+		
+		List <Departement> listDep = DepService.retrieveAllDepartements();
+		assertNotNull(listDep);
 	}
-	
 	
 	@Test
 	public void testAjouterDepartement(){
@@ -39,8 +40,8 @@ public class DepartementServiceImplTest {
 	}
 	@Test
 	public void testAffecterDepartementAEntreprise() {
-		int entrepriseId = 1 ;
-		int depId = 51;  
+		int entrepriseId = 3 ;
+		int depId = 3;  
 		Departement Dep = deptRepoistory.findById(depId).orElse(null);
 		Entreprise Ent = entrepriseRepoistory.findById(entrepriseId).orElse(null);
 		if (Dep != null){
@@ -53,7 +54,7 @@ public class DepartementServiceImplTest {
 	@Test
 	public void testDesaffecterDepartementDuEntreprise () {
 		int entId = 1 ;
-		int depId = 50 ;
+		int depId = 1 ;
 	    DepService.desaffecterDepartementAEntreprise(depId, entId);
 	    Departement Dep = deptRepoistory.findById(depId).orElse(null);
 	    if(Dep != null){
@@ -62,10 +63,10 @@ public class DepartementServiceImplTest {
 	}
 	@Test
 	  public void testGetDepartementById(){
-		int depId = 51;//+1
+		int depId = 2;//+1
 		Departement dep= DepService.retrieveDepartement(depId);
 		
-		assertEquals(51, dep.getId());
+		assertEquals(2, dep.getId());
 	}
 	
 	
