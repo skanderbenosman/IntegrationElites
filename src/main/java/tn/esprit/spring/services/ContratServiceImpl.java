@@ -22,14 +22,14 @@ public class ContratServiceImpl implements IContratService {
 		List<Contrat> contrats = null; 
 		try {
 	
-			l.info("In retrieveAllUsers() : ");
+			l.info("In retrieveAllContrat() : ");
 			contrats = (List<Contrat>) contratRepository.findAll();  
 			for (Contrat C : contrats) {
 				l.debug("Contrat +++ : " + C);
 			} 
-			l.info("Out of retrieveAllUsers() : ");
+			l.info("Out of retrieveAlContrat() : ");
 		}catch (Exception e) {
-			l.error("Error in retrieveAllUsers() : " + e);
+			l.error("Error in retrieveAllContrat() : " + e);
 		}
 
 		return contrats;
