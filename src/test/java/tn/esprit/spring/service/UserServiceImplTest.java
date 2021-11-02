@@ -48,13 +48,13 @@ public class UserServiceImplTest {
 			User userUpdated  = us.updateUser(u); 
 			//Assert.assertEquals(u.getLastName(), userUpdated.getLastName());
 		}
-	
+	/*
 		@Test
 		public void testRetrieveUser() {
 			User userRetrieved = us.retrieveUser("3"); 
 			//Assert.assertEquals(1L, userRetrieved.getId().longValue());
 		}
-		
+		*/
 		/*@Test
 		public void testDeleteUser() {
 			us.deleteUser("2");
