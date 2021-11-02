@@ -10,7 +10,7 @@ public interface IUserService {
 	User addUser(User u);
 	void deleteUser(String id);
 	User updateUser(User u);
-/*	User retrieveUser(String id); */
+	User retrieveUser(String id);
 
 } 
  

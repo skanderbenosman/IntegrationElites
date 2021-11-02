@@ -56,7 +56,7 @@ public class UserServiceImpl implements IUserService {
 	public void deleteUser(String id) {
 		userRepository.deleteById(Long.parseLong(id));
 	}
-/*
+
 	@Override
 	public User retrieveUser(String id) {
 		l.info("in  retrieveUser id = " + id);
@@ -65,5 +65,5 @@ public class UserServiceImpl implements IUserService {
 		l.info("user returned : " + u);
 		return u; 
 	}
-*/
+
 }

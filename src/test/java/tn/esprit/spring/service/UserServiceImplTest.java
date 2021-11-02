@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,13 +49,13 @@ public class UserServiceImplTest {
 			User userUpdated  = us.updateUser(u); 
 			//Assert.assertEquals(u.getLastName(), userUpdated.getLastName());
 		}
-	/*
+	
 		@Test
 		public void testRetrieveUser() {
 			User userRetrieved = us.retrieveUser("3"); 
 			//Assert.assertEquals(1L, userRetrieved.getId().longValue());
 		}
-		*/
+		
 		/*@Test
 		public void testDeleteUser() {
 			us.deleteUser("2");
